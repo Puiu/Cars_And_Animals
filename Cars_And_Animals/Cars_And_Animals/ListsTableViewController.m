@@ -25,6 +25,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [_tableView registerClass:[AnimalListTableViewCell class] forCellReuseIdentifier:CELL_IDENTIFIER_ANIMAL];
+    [_tableView registerClass:[CarListTableViewCell class] forCellReuseIdentifier:CELL_IDENTIFIER_CAR];
+    
     ListsTVCInterfaceTool *interfaceTool = [[ListsTVCInterfaceTool alloc] initWithController:self];
     [interfaceTool AddTableView];
 }
@@ -54,13 +58,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER_CAR];
-    
-    // Configure the cell...
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTIFIER_CAR];
+    UITableViewCell *cell = nil;
+    if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER_CAR];
+    }
+    else if (indexPath.section == 1)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER_ANIMAL];
     }
     
+    
+    
+    if (!cell) {
+        if (indexPath.section == 0) {
+            
+            cell = [[CarListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTIFIER_CAR];
+        }
+        else if (indexPath.section == 1)
+        {
+            cell = [[AnimalListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTIFIER_ANIMAL];
+        }
+    }
     return cell;
 }
 

@@ -7,9 +7,9 @@
 //
 
 #import "CarListTableViewCell.h"
-#define kLblFamilyNameTag 1
-#define kLblAnimalNameTag 2
-#define kSpeedTag 3
+#define kLblBrandTag 1
+#define kLblModelTag 2
+#define kLblYearTag 3
 
 @implementation CarListTableViewCell
 @synthesize ScrollView = _ScrollView;
@@ -21,6 +21,7 @@
         // Initialization code
         ListManager *manager = [[ListManager alloc] init];
         models = [manager GetCars];
+        [self arrangeInterface];
     }
     return self;
 }
@@ -75,8 +76,8 @@
 {
     [self AddBrandLabelToView:view fromModel:model];
     
-    //[self AddNumberOfLabel:view fromModel:model];
-    //[self AddDescriptionLabel:view fromModel:model];
+    [self AddModelLabelToView:view fromModel:model];
+    [self AddYearLabelToView:view fromModel:model];
     
 }
 
@@ -87,11 +88,11 @@
     lblBrandName = [[UILabel alloc] init];
     lblBrandName.text = model.Brand;
     lblBrandName.translatesAutoresizingMaskIntoConstraints = NO;
-    lblBrandName.tag = kLblFamilyNameTag;
+    lblBrandName.tag = kLblBrandTag;
     
     [view addSubview:lblBrandName];
     
-    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[lblBrandName]"
+    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-30-[lblBrandName]"
                                                                     options:0 metrics:nil
                                                                       views:NSDictionaryOfVariableBindings(lblBrandName)];
     
@@ -106,6 +107,57 @@
     [view addConstraint:c1];
 }
 
+-(void)AddModelLabelToView:(UIView*)view fromModel:(CarModel*)model
+{
+    UILabel *lblModel;
+    
+    lblModel = [[UILabel alloc] init];
+    lblModel.text = model.Model;
+    lblModel.translatesAutoresizingMaskIntoConstraints = NO;
+    lblModel.tag = kLblModelTag;
+    
+    [view addSubview:lblModel];
+    
+    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-60-[lblModel]"
+                                                                    options:0 metrics:nil
+                                                                      views:NSDictionaryOfVariableBindings(lblModel)];
+    
+    [view addConstraints:constraints];
+    
+    NSLayoutConstraint *c1 = [NSLayoutConstraint constraintWithItem:lblModel
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:lblModel.superview
+                                                          attribute:NSLayoutAttributeCenterX multiplier:1
+                                                           constant:0];
+    [view addConstraint:c1];
+}
+
+-(void)AddYearLabelToView:(UIView*)view fromModel:(CarModel*)model
+{
+    UILabel *lblYear;
+    
+    lblYear = [[UILabel alloc] init];
+    lblYear.text = [NSString stringWithFormat:@"Year: %d", model.Year];
+    lblYear.translatesAutoresizingMaskIntoConstraints = NO;
+    lblYear.tag = kLblYearTag;
+    
+    [view addSubview:lblYear];
+    
+    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-90-[lblYear]"
+                                                                    options:0 metrics:nil
+                                                                      views:NSDictionaryOfVariableBindings(lblYear)];
+    
+    [view addConstraints:constraints];
+    
+    NSLayoutConstraint *c1 = [NSLayoutConstraint constraintWithItem:lblYear
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:lblYear.superview
+                                                          attribute:NSLayoutAttributeCenterX multiplier:1
+                                                           constant:0];
+    [view addConstraint:c1];
+}
 
 
 #pragma mark - Others

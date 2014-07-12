@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0D287A53-06B8-439C-A572-C7FEED8E5C11</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cars_And_Animals</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A2DF4666-D052-4328-8F14-8E00E2E2CAEC</key>
+		<string>https://github.com/Puiu/Cars_And_Animals.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cars_And_Animals/Cars_And_Animals.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A2DF4666-D052-4328-8F14-8E00E2E2CAEC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Puiu/Cars_And_Animals.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A2DF4666-D052-4328-8F14-8E00E2E2CAEC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A2DF4666-D052-4328-8F14-8E00E2E2CAEC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cars_And_Animals</string>
+		</dict>
+	</array>
+</dict>
+</plist>

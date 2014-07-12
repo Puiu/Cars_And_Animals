@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ListsTVCInterfaceTool.h"
 #import "Constants.h"
+#import "CarListTableViewCell.h"
+#import "AnimalListTableViewCell.h"
 
 @interface ListsTableViewController  : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
